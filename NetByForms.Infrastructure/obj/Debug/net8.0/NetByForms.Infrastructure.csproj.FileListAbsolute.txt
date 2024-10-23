@@ -1,0 +1,17 @@
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\bin\Debug\net8.0\NetByForms.Infrastructure.deps.json
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\bin\Debug\net8.0\NetByForms.Infrastructure.runtimeconfig.json
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\bin\Debug\net8.0\NetByForms.Infrastructure.dll
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\bin\Debug\net8.0\NetByForms.Infrastructure.pdb
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\bin\Debug\net8.0\NetByForms.Domain.dll
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\bin\Debug\net8.0\NetByForms.Domain.pdb
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\NetByForms.Infrastructure.csproj.AssemblyReference.cache
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\NetByForms.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\NetByForms.Infrastructure.AssemblyInfoInputs.cache
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\NetByForms.Infrastructure.AssemblyInfo.cs
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\NetByForms.Infrastructure.csproj.CoreCompileInputs.cache
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\NetByFor.738627CD.Up2Date
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\NetByForms.Infrastructure.dll
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\refint\NetByForms.Infrastructure.dll
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\NetByForms.Infrastructure.pdb
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\NetByForms.Infrastructure.genruntimeconfig.cache
+C:\ProyectosPropio\NetBy\NetByForms.Infrastructure\obj\Debug\net8.0\ref\NetByForms.Infrastructure.dll
