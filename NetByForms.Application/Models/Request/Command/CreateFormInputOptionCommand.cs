@@ -8,10 +8,15 @@ using System.Threading.Tasks;
 
 namespace NetByForms.Application.Models.Request.Command
 {
-    public class CreateFormInputOptionCommand : IRequest<Guid>
+    public class CreateFormInputOptionCommand : FormInputOptionRequest,IRequest<Guid>
     {
         [Required]
         public Guid FormInputId { get; set; }
+
+    }
+    public class FormInputOptionRequest
+    {
+
 
         [Required]
         public string OptionValue { get; set; } = string.Empty;

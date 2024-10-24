@@ -24,7 +24,7 @@ namespace NetByForms.Application.QueryHandler
 
         public async Task<FormDto?> Handle(GetFormQuery request, CancellationToken cancellationToken)
         {
-            var form = await _formRepository.GetByIdAsync(request.Id);
+            var form = await _formRepository.GetByIdProyectToAsync<FormDto,Guid>(request.Id,mapper:_mapper);
 
             if (form == null)
             {

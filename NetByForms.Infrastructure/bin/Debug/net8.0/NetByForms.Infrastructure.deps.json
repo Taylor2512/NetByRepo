@@ -947,13 +947,6 @@
         }
       },
       "NetByForms.Domain/1.0.0": {
-        "dependencies": {
-          "AutoMapper": "13.0.1",
-          "MediatR": "12.4.1",
-          "MediatR.Contracts": "2.0.1",
-          "Microsoft.EntityFrameworkCore": "8.0.10",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10"
-        },
         "runtime": {
           "NetByForms.Domain.dll": {
             "assemblyVersion": "1.0.0",
