@@ -1,33 +1,30 @@
-# Consulte https://aka.ms/customizecontainer para aprender a personalizar su contenedor de depuración y cómo Visual Studio usa este Dockerfile para compilar sus imágenes para una depuración más rápida.
-
-# Esta fase se usa cuando se ejecuta desde VS en modo rápido (valor predeterminado para la configuración de depuración)
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER app
-WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
-
-
-# Esta fase se usa para compilar el proyecto de servicio
+# Etapa de construcción
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["NetByForms.Api/NetByForms.Api.csproj", "NetByForms.Api/"]
-COPY ["NetByForms.Application/NetByForms.Application.csproj", "NetByForms.Application/"]
-COPY ["NetByForms.Infrastructure/NetByForms.Infrastructure.csproj", "NetByForms.Infrastructure/"]
-COPY ["NetByForms.Domain/NetByForms.Domain.csproj", "NetByForms.Domain/"]
-RUN dotnet restore "./NetByForms.Api/NetByForms.Api.csproj"
-COPY . .
-WORKDIR "/src/NetByForms.Api"
-RUN dotnet build "./NetByForms.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# Esta fase se usa para publicar el proyecto de servicio que se copiará en la fase final.
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./NetByForms.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+# Instalar libicu-dev (si es necesario)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libicu-dev \
+ && rm -rf /var/lib/apt/lists/*
 
-# Esta fase se usa en producción o cuando se ejecuta desde VS en modo normal (valor predeterminado cuando no se usa la configuración de depuración)
-FROM base AS final
+# Copia todo el contenido del proyecto
+COPY . .  
+RUN dotnet restore "NetByForms.Api/NetByForms.Api.csproj"
+
+# Compila y publica la aplicación
+RUN dotnet publish "NetByForms.Api/NetByForms.Api.csproj" -c Release -o /app/publish
+
+# Etapa final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+EXPOSE 7130
+
+# Copia los archivos publicados desde la etapa de construcción
+COPY --from=build /app/publish .
+
+# Configura las variables de entorno necesarias
+ENV ASPNETCORE_URLS=http://+:7130 \
+    ASPNETCORE_ENVIRONMENT=Production
+
+# Configura el punto de entrada de la aplicación
 ENTRYPOINT ["dotnet", "NetByForms.Api.dll"]

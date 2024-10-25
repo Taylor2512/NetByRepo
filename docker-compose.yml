@@ -1,6 +1,37 @@
+version: '3.8'
+
 services:
-  netbyforms.api:
-    image: ${DOCKER_REGISTRY-}netbyformsapi
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - SA_PASSWORD=Kawasaki2512
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    networks:
+      - mynetwork
+
+  backend:
     build:
       context: .
-      dockerfile: NetByForms.Api/Dockerfile
+      dockerfile: ./NetByForms.Api/Dockerfile
+    ports:
+      - "5000:7130"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - DB_SERVER=sqlserver
+      - DB_DATABASE=netby
+      - DB_USER=sa
+      - DB_PASSWORD=Kawasaki2512
+    depends_on:
+      - sqlserver
+    networks:
+      - mynetwork
+    restart: always
+    command: >
+      sh -c "sleep 30 && dotnet ef database update && dotnet NetByForms.Api.dll"
+
+networks:
+  mynetwork:
+    driver: bridge
