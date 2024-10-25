@@ -10,7 +10,6 @@ namespace NetByForms.Application.Models.Request.Command
         [StringLength(100, MinimumLength = 3)]
         public string Name { get; set; } = string.Empty;
 
-        public List<FormInputDto> Inputs { get; set; } = new List<FormInputDto>();
+        public List<ForInputRequest> Inputs { get; set; } = new List<ForInputRequest>();
     }
-
 }

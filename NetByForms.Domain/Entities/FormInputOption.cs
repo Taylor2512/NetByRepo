@@ -6,6 +6,6 @@
         public Guid FormInputId { get; set; }
         public string OptionValue { get; set; } = string.Empty;
         public string DisplayText { get; set; } = string.Empty;
-        public required FormInput FormInput { get; set; }
+        public FormInput FormInput { get; set; }
     }
 }

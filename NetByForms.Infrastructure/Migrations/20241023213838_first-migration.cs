@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -11,7 +10,7 @@ namespace NetByForms.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "Forms",
                 columns: table => new
                 {
@@ -22,10 +21,10 @@ namespace NetByForms.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Forms", x => x.Id);
+                    _ = table.PrimaryKey("PK_Forms", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "FormInputs",
                 columns: table => new
                 {
@@ -37,8 +36,8 @@ namespace NetByForms.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FormInputs", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_FormInputs", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_FormInputs_Forms_FormId",
                         column: x => x.FormId,
                         principalTable: "Forms",
@@ -46,7 +45,7 @@ namespace NetByForms.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "FormInputOptions",
                 columns: table => new
                 {
@@ -57,8 +56,8 @@ namespace NetByForms.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FormInputOptions", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_FormInputOptions", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_FormInputOptions_FormInputs_FormInputId",
                         column: x => x.FormInputId,
                         principalTable: "FormInputs",
@@ -66,12 +65,12 @@ namespace NetByForms.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_FormInputOptions_FormInputId",
                 table: "FormInputOptions",
                 column: "FormInputId");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_FormInputs_FormId",
                 table: "FormInputs",
                 column: "FormId");
@@ -80,13 +79,13 @@ namespace NetByForms.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "FormInputOptions");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "FormInputs");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "Forms");
         }
     }

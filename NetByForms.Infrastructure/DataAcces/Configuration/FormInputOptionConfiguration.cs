@@ -20,5 +20,4 @@ namespace NetByForms.Infrastructure.DataAcces.Configuration
                 .HasMaxLength(100);
         }
     }
-
 }

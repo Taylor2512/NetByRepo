@@ -5,7 +5,6 @@ namespace NetByForms.Infrastructure.Repository.Extensions
 {
     public class RepositoryWrite<T>(ApplicationDbContext context) : IRepositoryWrite<T> where T : class
     {
-
         public void Add(T entity)
         {
             _ = context.Set<T>().Add(entity);

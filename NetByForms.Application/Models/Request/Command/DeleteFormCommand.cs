@@ -1,9 +1,4 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NetByForms.Application.Models.Request.Command
 {
@@ -11,5 +6,4 @@ namespace NetByForms.Application.Models.Request.Command
     {
         public Guid Id { get; set; }
     }
-
 }

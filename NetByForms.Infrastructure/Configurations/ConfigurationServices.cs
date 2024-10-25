@@ -25,8 +25,8 @@ namespace NetByForms.Infrastructure.Configurations
             _ = services.AddScoped<IFormInputRepositoryRead, FormInputRepositoryRead>();
             _ = services.AddScoped<IFormInputRepositoryWrite, FormInputRepositoryWrite>();
             return services;
-
         }
+
         public static IServiceCollection ConfigureDbContext(this IServiceCollection services, IConfiguration configuration)
         {
             _ = services.AddDbContext<ApplicationDbContext>(options =>

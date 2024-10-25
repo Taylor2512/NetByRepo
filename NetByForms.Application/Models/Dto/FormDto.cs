@@ -7,6 +7,6 @@
         public bool IsActive { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public ICollection<FormInputDto> Inputs { get; set; } = new List<FormInputDto>();
+        public ICollection<FormInputDto>? Inputs { get; set; }
     }
 }

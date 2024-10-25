@@ -3,11 +3,6 @@ using MediatR;
 using NetByForms.Application.Models.Dto;
 using NetByForms.Application.Models.Request.Query;
 using NetByForms.Infrastructure.Repository.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NetByForms.Application.QueryHandler
 {
@@ -24,7 +19,7 @@ namespace NetByForms.Application.QueryHandler
 
         public async Task<FormDto?> Handle(GetFormQuery request, CancellationToken cancellationToken)
         {
-            var form = await _formRepository.GetByIdAsync(request.Id);
+            var form = await _formRepository.GetByIdProyectToAsync<FormDto, Guid>(request.Id, mapper: _mapper);
 
             if (form == null)
             {

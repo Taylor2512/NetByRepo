@@ -25,5 +25,4 @@ namespace NetByForms.Infrastructure.DataAcces.Configuration
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
-
 }

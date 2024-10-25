@@ -9,9 +9,11 @@ namespace NetByForms.Infrastructure.DataAcces
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
+
         public DbSet<Form> Forms { get; set; }
         public DbSet<FormInput> FormInputs { get; set; }
         public DbSet<FormInputOption> FormInputOptions { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             _ = modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

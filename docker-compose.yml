@@ -1,0 +1,6 @@
+services:
+  netbyforms.api:
+    image: ${DOCKER_REGISTRY-}netbyformsapi
+    build:
+      context: .
+      dockerfile: NetByForms.Api/Dockerfile
